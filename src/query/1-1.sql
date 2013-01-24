@@ -1,4 +1,4 @@
--- Oracle User 积己
+-- Oracle User 靸濎劚
 CREATE USER toby
 IDENTIFIED BY r4e3w2q1;
 
@@ -7,7 +7,7 @@ GRANT create session TO toby;
 GRANT create table TO toby;
 
 
--- Table 积己
+-- Table 靸濎劚
 CREATE TABLE users (
 	id VARCHAR2(10) PRIMARY KEY,
   name VARCHAR2(20) NOT NULL,
