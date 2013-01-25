@@ -7,7 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import springbook.user.domain.User;
 
-public class UserDao {
+public abstract class UserDao {
 
 	public void add(User user) throws ClassNotFoundException, SQLException {
 		Connection c = getConnection();
@@ -44,14 +44,10 @@ public class UserDao {
 		return user;
 	}
 	
-	private Connection getConnection() throws ClassNotFoundException, SQLException {
-		Class.forName("oracle.jdbc.driver.OracleDriver");
-		Connection c = DriverManager.getConnection("jdbc:oracle:thin:@127.0.0.1:1521:orcl", "toby", "r4e3w2q1");
-		return c;
-	}
+	public abstract Connection getConnection() throws ClassNotFoundException, SQLException; 
 	
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		UserDao dao = new UserDao();
+		UserDao dao = new NUserDao();
 		
 		User user = new User();
 		user.setId("whiteship");
