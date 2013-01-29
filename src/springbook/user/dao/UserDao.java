@@ -1,7 +1,6 @@
 package springbook.user.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,8 +10,10 @@ public class UserDao {
 
 	private ConnectionMaker connectionMaker;
 	
-	public UserDao() {
-		connectionMaker = new DConnectionMaker();
+	public UserDao() {}
+	
+	public UserDao(ConnectionMaker connectionMaker) {
+		this.connectionMaker = connectionMaker;
 	}
 	
 	public void add(User user) throws ClassNotFoundException, SQLException {
